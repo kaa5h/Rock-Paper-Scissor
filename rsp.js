@@ -1,34 +1,40 @@
 let rsp = ["rock", "paper", "scissor"];
 let rounds = 5;
-
+let userPoint = 1;
+let computerPoint = 1;
+let userWon = "User Won";
+let computerWon = "Computer Won";
+let none ="none won";
 
 function singleRound(userSelection, computerSelection) {
-
- 
-
+    
     switch (true) {
         case userSelection === `rock` && computerSelection === `scissor`:
         case userSelection === `scissor` && computerSelection === `paper`:
         case userSelection === `paper` && computerSelection === `rock`:
-            console.log("user won");
+            let user = `${userWon}: ${userPoint++}`;
+            return user;
         break;
 
         case userSelection === `scissor` && computerSelection === `rock`:
         case userSelection === `paper` && computerSelection === `scissor`:
         case userSelection === `rock` && computerSelection === `paper`:
-            console.log("Computer WON");
+            let computer= `${computerWon}: ${computerPoint++}`;
+            return computer;
         break;
 
         default:
-        console.log("no one won");
+            return none;
+        break;
         }    
 }
 
-
 function game(){
     
-    for(let i = 0; i <= rounds;  i++ ){
+    for(let i = 1; i <= rounds;  i++ ){
+        
         let userSelection = prompt("What is your selection? rock or paper or scissor?")
+        
         if(userSelection != "rock" && userSelection != "paper" && userSelection != "scissor") {
             alert("wrong input");
         }
@@ -37,6 +43,16 @@ function game(){
         let computerSelection = computerPlay(); 
         
         console.log(`${userSelection} and ${computerSelection}`, singleRound(userSelection, computerSelection));
+    }
+
+    if (userPoint > computerPoint){
+        console.log("USER WON THE GAME OF RPS");
+    }
+    else if(computerPoint > userPoint){
+        console.log("COMPUTER WON THE GAME OF RPS");
+    }
+    else{
+        console.log("NONE WON THE GAME OF RPS");
     }
 }
 
