@@ -6,6 +6,7 @@ let userWon = "User Won";
 let computerWon = "Computer Won";
 let none ="none won";
 
+// This is for single round game. Keeps track of the win-lose of a single particular round
 function singleRound(userSelection, computerSelection) {
     
     switch (true) {
@@ -29,6 +30,7 @@ function singleRound(userSelection, computerSelection) {
         }    
 }
 
+// This is for the whole game. Keeps track of the win-lose of all rounds and then declares the winner in the end
 function game(){
     
     for(let i = 1; i <= rounds;  i++ ){
